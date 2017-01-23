@@ -47,7 +47,7 @@ class Job(object):
 
     def params(self):
         params = {}
-        for k, v in attr.asdict(self).iteritems():
+        for k, v in attr.asdict(self).items():
             if v is not None:
                 if k == 'file':
                     with open(v) as f:
