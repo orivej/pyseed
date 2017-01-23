@@ -96,7 +96,7 @@ class RAST(object):
     def retrieve(self, job, format):
         q = 'retrieve_RAST_job'
         args = {'-job': job, '-format': format}
-        if not format in formats:
+        if format not in formats:
             err = '{!r} is not in {}'.format(format, formats.keys())
             raise ValueError(err)
         return self._query(q, args, decode_yaml=False)
@@ -106,7 +106,7 @@ class RAST(object):
         return self._query(q, job.params())
 
     def copy(self, src, dst):
-        raise NotImplemented
+        raise NotImplementedError
 
     def _query(self, function, params, decode_yaml=True):
         form = dict(
